@@ -9,7 +9,22 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Yizhou.Xie.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Yizhou.Xie" startnode="1" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="A31CBA0B-94BF-4BD3-9DDF-E9A0403A11CA" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+<tw-storydata name="Yizhou.Xie" startnode="1" creator="Twine" creator-version="2.7.1" format="Harlowe" format-version="3.3.7" ifid="A31CBA0B-94BF-4BD3-9DDF-E9A0403A11CA" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">h2 {
+    margin-top: 0.3em;    /* 调整为你想要的上边距 */
+    margin-bottom: 0.1em; /* 调整为你想要的下边距 */
+}
+
+h1 {
+    margin-top: 0.2em;    /* 减少上边距 */
+    margin-bottom: 0.1em; /* 减少下边距 */
+}
+
+hr {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+
 /* 透明中心框 */
 tw-story {
     display: flex;
@@ -143,12 +158,30 @@ button#playPauseButton {
     top: 10px;         /* 距离顶部10像素 */
     right: 10px;       /* 距离右侧10像素 */
     z-index: 1000;     /* 确保按钮显示在其他元素的上方 */
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">if (!window.bgm) {
-    window.bgm = new Audio("https://xyz7772.github.io/XYZExistence/bgms/帆足圭吾 - 曖昧ナ希望／氷雨.mp3");
-    window.bgm.loop = true;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">// 歌曲列表
+var audioList = [
+      "https://xyz7772.github.io/XYZExistence/bgms/岡部啓一 - 還ラナイ声／通常.mp3",
+    "https://xyz7772.github.io/XYZExistence/bgms/帆足圭吾 - 曖昧ナ希望／氷雨.mp3",
+    "https://xyz7772.github.io/XYZExistence/bgms/岡部啓一 - 還ラナイ声／ギター.mp3"
+];
+var currentAudioIndex = 0;
+
+if (!window.bgm) {
+    window.bgm = new Audio(audioList[currentAudioIndex]);
+    window.bgm.loop = false;  // 设置为false，因为我们手动处理歌曲间的切换
     window.bgmPlaying = false;
     window.bgm.volume = 0.2;
 }
+
+// 当前歌曲结束时的处理
+window.bgm.addEventListener('ended', function() {
+    currentAudioIndex++;
+    if (currentAudioIndex >= audioList.length) {
+        currentAudioIndex = 0;  // 返回到列表的开头
+    }
+    window.bgm.src = audioList[currentAudioIndex];
+    window.bgm.play();
+});
 
 window.toggleBGM = function(buttonElement) {
     if (window.bgm.paused) {
@@ -172,7 +205,7 @@ Please select a section to explore:
 [[Skills &amp; Software]]
 [[Publications]]
 [[Contact]]
-&lt;button id=&quot;playPauseButton&quot; onclick=&quot;window.toggleBGM(this)&quot;&gt;Music&lt;/button&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills &amp; Software" tags="" position="200,425" size="100,100">**Programming Language**
+&lt;button id=&quot;playPauseButton&quot; onclick=&quot;window.toggleBGM(this)&quot;&gt;Music&lt;/button&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills &amp; Software" tags="" position="200,425" size="100,100">&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Programming Language**&lt;/span&gt;
 - MATLAB (advanced)
 - Jupyter Notebook (advanced)
 - Shell (intermediate)
@@ -180,7 +213,7 @@ Please select a section to explore:
 - HTML/CSS/JavaScript (intermediate)
 - R (beginner)
 ---
-**Wet Lab Techniques**
+&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Wet Lab Techniques**&lt;/span&gt;
 - Cell cultivation
 - Confocal microscopy
 - Drosophila maintenance and genetic manipulation
@@ -193,7 +226,7 @@ Please select a section to explore:
 - PCR &amp; RT-PCR
 - Protein purification
 ---
-**Proficient Softwares**
+&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Proficient Softwares**&lt;/span&gt;
 - Adobe Illustrator &amp; Photoshop
 - Excel
 - FIJI ImageJ 
@@ -299,8 +332,7 @@ Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox
 
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="7" name="About Yizhou" tags="" position="1175,225" size="100,100">&lt;h2&gt;**About Yizhou**&lt;/h2&gt;
----
-&lt;img src=&quot;https://github.com/xyz7772/XYZExistence/blob/main/Imgs/playing%20the%20guitar.jpg?raw=true&quot; alt=&quot;Playing the Guitar&quot; width=&quot;600&quot;&gt;
+&lt;img src=&quot;https://github.com/xyz7772/XYZExistence/blob/main/Imgs/playing%20the%20guitar.jpg?raw=true&quot; alt=&quot;Playing the Guitar&quot; width=&quot;570&quot;&gt;
 Born in Zhenjiang, Jiangsu, China, in 2000
 ---
 In my spare moments, I play the acoustic guitar and appreciate for Classical, Electronic, Folk, and Experimental genres. In the gaming realm, I&#39;m not just a player but a detective — dissecting game mechanics and unearthing hidden gaming tips. I also take pleasure in crafting interactive visual novels. Experience one such journey here: &lt;a href=&#39;https://xyz7772.github.io/AWinter_Fairytale/&#39; target=&#39;_blank&#39;&gt;A Winter Fairytale&lt;/a&gt;.
