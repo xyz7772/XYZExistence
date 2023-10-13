@@ -26,8 +26,8 @@ tw-sidebar {
 
 @font-face {
   font-family: 'BenguiatFont';
-  src: url('https://xyz7772.github.io/XYZExistence/BenguiatStd-Book.woff2') format('woff2'),
-       url('https://xyz7772.github.io/XYZExistence/BenguiatStd-Book.woff') format('woff'),
+  src: url('https://xyz7772.github.io/XYZExistence/BenguiatStd_font/BenguiatStd-Book.woff2') format('woff2'),
+       url('https://xyz7772.github.io/XYZExistence/BenguiatStd_font/BenguiatStd-Book.woff') format('woff'),
 }
 
 
@@ -85,19 +85,36 @@ body::before {
 
 body:hover::before {
     filter: blur(5px);
-background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 90%), url(https://images4.alphacoders.com/992/992950.png);
+background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.14) 80%), url(https://images4.alphacoders.com/992/992950.png);
 transition: filter 1.1s;
 }
 
+button {
+    background-color: #5a5a5a;
+    color: #F5E1A4;
+    border: none;
+    padding: 4px 14px; /* 内边距决定了按钮的大小，可以根据需要调整 */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    line-height: normal; /* 使按钮内的文字垂直居中 */
+    font-family: 'BenguiatFont'; /* 设置按钮的字体为BenguiatFont */
+}
 
+button:hover {
+    background-color: #F5E1A4;
+    color: #5a5a5a;
+}
 
-
-
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(window).scroll(function() {
-    var scrolledY = $(window).scrollTop();
-    $('.parallax').css('background-position', 'center ' + ((scrolledY * 0.5)) + 'px');
-});
-</script><tw-passagedata pid="1" name="Start1" tags="" position="625,150" size="200,200">What does it mean to be exist in the world? 
+button:active {
+    background-color: #FFA07A; /* 按钮被按下时的淡橙色 */
+    transform: scale(1); /* 按钮在被按下时恢复原始大小 */
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start1" tags="" position="625,150" size="200,200">What does it mean to be exist in the world? 
 Thank you, kind traveler, for bearing witness to a fragment of &lt;h1&gt; Yizhou Xie &lt;/h1&gt;
 ---
 Please select a section to explore:
@@ -146,12 +163,44 @@ Please select a section to explore:
 
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="4" name="Contact" tags="" position="975,500" size="100,100">&lt;h2&gt;**Contact**&lt;/h2&gt;
----
 - Email: [xieyizhouxyz@gmail.com]
 - GitHub: [https://github.com/xyz7772]
-
-
-[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="5" name="Education" tags="" position="1100,400" size="100,100">&lt;h2&gt;&#39;&#39;Education&#39;&#39;&lt;/h2&gt;
+---
+&lt;form id=&quot;myForm&quot;&gt;
+ &lt;label style=&quot;margin: 1px 0;&quot;&gt;
+ In this vast universe, what do you think your existence means?
+    &lt;textarea name=&quot;message&quot; rows=&quot;5&quot; cols=&quot;60&quot;&gt;&lt;/textarea&gt;
+&lt;/label&gt;
+&lt;br&gt;
+&lt;label style=&quot;margin: 1px 0;&quot;&gt; Your email:
+    &lt;input type=&quot;email&quot; name=&quot;email&quot; style=&quot;width:250px;&quot;&gt;
+&lt;/label&gt;
+  &lt;button type=&quot;submit&quot; &gt;
+    Send
+  &lt;/button&gt;
+&lt;/form&gt;
+&lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
+[[Return to Main Menu|Start1]]
+&lt;script&gt;
+$(document).ready(function() {
+    $(&#39;#myForm&#39;).submit(function(event) {
+        event.preventDefault(); // 阻止默认的表单提交
+        $.ajax({
+            type: &#39;POST&#39;,
+            url: &#39;https://formspree.io/f/mrgwrqjk&#39;,
+            data: $(this).serialize(),
+            dataType: &#39;json&#39;,
+            success: function(response) {
+                alert(&#39;Submitted！&#39;);
+                $(&#39;#myForm&#39;)[0].reset();
+            },
+            error: function(err) {
+                alert(&#39;error&#39;);
+            }
+        });
+    });
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Education" tags="" position="1100,400" size="100,100">&lt;h2&gt;&#39;&#39;Education&#39;&#39;&lt;/h2&gt;
 ---
 Master of Research in Experimental Neuroscience 2022-2023
 Imperial College London, UK
@@ -197,7 +246,7 @@ Supervisor: Dr. Masashi Tabuchi
 
 **Capstone Research (Aug 2021- May 2022)**
 Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox
-- Explored connections between circadian rhythm, memory, and neurodegenerative diseases through transcript expression level and behavior analysis in Drosophila
+- Explored connections between circadian rhythm, memory, and neurodegenerative diseases through transcript expression level and behavior analysis in Drosophila
 - Studied the effect of //pumilio// on sleep structure and DN1 neuronal excitability
 
 
@@ -206,9 +255,13 @@ Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox
 2000, Born in Zhenjiang, Jiangsu, China
 ---
 &#39;&#39;Music: &#39;&#39;Acoustic Guitar; Appreciation for Classical, Electronic, Folk, and Experimental genres
+
 &#39;&#39;Running: &#39;&#39;Engage in sprints, long-distance running, and marathons
+
 &#39;&#39;Philosophy: &#39;&#39;Existentialism
+
 &#39;&#39;Gaming: &#39;&#39;Passionate about investigating game mechanics and exploring gaming tips
+
 &#39;&#39;Creative Writing: &#39;&#39;Produce interactive visual novels; See how it looks like: https://xyz7772.github.io/AWinter_Fairytale/
 
 
