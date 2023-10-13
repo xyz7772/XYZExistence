@@ -134,8 +134,34 @@ a:hover {
     /* 其他针对手机的样式 */
 }
 
+audio#bgm {
+    display: none;  /* 隐藏音频元素 */
+}
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start1" tags="" position="625,150" size="200,200">What does it mean to be exist in the world? 
+button#playPauseButton {
+    position: fixed;   /* 设置为固定位置 */
+    top: 10px;         /* 距离顶部10像素 */
+    right: 10px;       /* 距离右侧10像素 */
+    z-index: 1000;     /* 确保按钮显示在其他元素的上方 */
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">if (!window.bgm) {
+    window.bgm = new Audio("https://xyz7772.github.io/XYZExistence/bgms/帆足圭吾 - 曖昧ナ希望／氷雨.mp3");
+    window.bgm.loop = true;
+    window.bgmPlaying = false;
+    window.bgm.volume = 0.2;
+}
+
+window.toggleBGM = function(buttonElement) {
+    if (window.bgm.paused) {
+        window.bgm.play();
+        buttonElement.textContent = "Pause";
+        window.bgmPlaying = true;
+    } else {
+        window.bgm.pause();
+        buttonElement.textContent = "Play";
+        window.bgmPlaying = false;
+    }
+};
+</script><tw-passagedata pid="1" name="Start1" tags="" position="625,150" size="200,200">What does it mean to be exist in the world? 
 Thank you, kind traveler, for bearing witness to a fragment of &lt;h1&gt; Yizhou Xie &lt;/h1&gt;
 ---
 Please select a section to explore:
@@ -146,7 +172,7 @@ Please select a section to explore:
 [[Skills &amp; Software]]
 [[Publications]]
 [[Contact]]
-</tw-passagedata><tw-passagedata pid="2" name="Skills &amp; Software" tags="" position="200,425" size="100,100">**Programming Language**
+&lt;button id=&quot;playPauseButton&quot; onclick=&quot;window.toggleBGM(this)&quot;&gt;Music&lt;/button&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills &amp; Software" tags="" position="200,425" size="100,100">**Programming Language**
 - MATLAB (advanced)
 - Jupyter Notebook (advanced)
 - Shell (intermediate)
@@ -177,8 +203,7 @@ Please select a section to explore:
 - Qupath
 - Zen-pro
 
-[[Return to Main Menu|Start1]]
-</tw-passagedata><tw-passagedata pid="3" name="Publications" tags="" position="375,450" size="100,100">&lt;h2&gt;**Publications**&lt;/h2&gt;
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="3" name="Publications" tags="" position="450,475" size="100,100">&lt;h2&gt;**Publications**&lt;/h2&gt;
 ---
 &amp;#91;1&amp;#93; (text-colour:#FF6347)[&#39;&#39;Xie Y&#39;&#39;] and Sadeh S (2023). Computational assessment of visual coding across mouse brain areas and behavioral states. //Front. Comput. Neurosci.// 17:1269019. &lt;a
 href=&#39;https://www.frontiersin.org/articles/10.3389/fncom.2023.1269019/&#39; target=&#39;_blank&#39;&gt; link &lt;/a&gt;
@@ -187,7 +212,7 @@ href=&#39;https://www.frontiersin.org/articles/10.3389/fncom.2023.1269019/&#39; 
 
 
 
-[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="4" name="Contact" tags="" position="975,500" size="100,100">&lt;h2&gt;**Contact**&lt;/h2&gt;
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="4" name="Contact" tags="" position="75,250" size="100,100">&lt;h2&gt;**Contact**&lt;/h2&gt;
 - Email: [xieyizhouxyz@gmail.com]
 - GitHub: [https://github.com/xyz7772]
 ---
@@ -196,13 +221,11 @@ href=&#39;https://www.frontiersin.org/articles/10.3389/fncom.2023.1269019/&#39; 
  In this vast universe, what do you think your existence means?
     &lt;textarea name=&quot;message&quot; rows=&quot;5&quot; cols=&quot;60&quot;&gt;&lt;/textarea&gt;
 &lt;/label&gt;
-&lt;br&gt;
 &lt;label style=&quot;margin: 1px 0;&quot;&gt; Your email:
     &lt;input type=&quot;email&quot; name=&quot;email&quot; style=&quot;width:250px;&quot;&gt;
 &lt;/label&gt;
-  &lt;button type=&quot;submit&quot; &gt;
-    Send
-  &lt;/button&gt;
+&lt;br&gt;
+&lt;button type=&quot;submit&quot; style=&quot;font-size: 26px;&quot;&gt;Send&lt;/button&gt;
 &lt;/form&gt;
 &lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
 [[Return to Main Menu|Start1]]
@@ -216,11 +239,11 @@ $(document).ready(function() {
             data: $(this).serialize(),
             dataType: &#39;json&#39;,
             success: function(response) {
-                alert(&#39;Submitted！&#39;);
+                alert(&#39;Your submission is successful! 🚀&#39;);
                 $(&#39;#myForm&#39;)[0].reset();
             },
             error: function(err) {
-                alert(&#39;error&#39;);
+                alert(&#39;Error! Please try again☕&#39;);
             }
         });
     });
@@ -236,7 +259,7 @@ Case Western Reserve University, OH, United States
 
 
 
-[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="6" name="Research Experience" tags="" position="775,500" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="6" name="Research Experience" tags="" position="975,475" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
 ---
 **Department of Brain Sciences, Faculty of Medicine, Imperial College London**
 
@@ -282,7 +305,7 @@ Born in Zhenjiang, Jiangsu, China, in 2000
 ---
 In my spare moments, I play the acoustic guitar and appreciate for Classical, Electronic, Folk, and Experimental genres. In the gaming realm, I&#39;m not just a player but a detective — dissecting game mechanics and unearthing hidden gaming tips. I also take pleasure in crafting interactive visual novels. Experience one such journey here: &lt;a href=&#39;https://xyz7772.github.io/AWinter_Fairytale/&#39; target=&#39;_blank&#39;&gt;A Winter Fairytale&lt;/a&gt;.
 
-[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Research Interests" tags="" position="600,500" size="100,100">&lt;h2&gt;**Research Interests**&lt;/h2&gt;
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Research Interests" tags="" position="675,500" size="100,100">&lt;h2&gt;**Research Interests**&lt;/h2&gt;
 ---
 1. Apply and develop computational approaches and state of the art brain imaging techniques to understand how the brain works/disorder
 2. Real-time decoding brain and develop brain machine interface
