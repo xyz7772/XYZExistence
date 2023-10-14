@@ -48,6 +48,7 @@ tw-sidebar {
 
 body {
   font-family: Arial, sans-serif;
+  font-size: 14px;
 }
 
 /* 设置整个游戏的样式 */
@@ -68,7 +69,6 @@ tw-passage {
     transition: all 0.3s ease;
     margin: 0 auto; /* 居中passage */
 }
-
 
 tw-story tw-link, 
 tw-story tw-link:visited, 
@@ -100,7 +100,6 @@ body::before {
 
 body:hover::before {
     filter: blur(5px);
-background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.14) 80%), url(https://images4.alphacoders.com/992/992950.png);
 transition: filter 1.1s;
 }
 
@@ -158,7 +157,23 @@ button#playPauseButton {
     top: 10px;         /* 距离顶部10像素 */
     right: 10px;       /* 距离右侧10像素 */
     z-index: 1000;     /* 确保按钮显示在其他元素的上方 */
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">// 歌曲列表
+}
+
+
+textarea {
+       width: 70%;
+       box-sizing: border-box;
+    }
+
+    /* Media query for smaller screens, e.g., mobile devices */
+    @media (max-width: 768px) {  /* 768px is a common breakpoint for tablets */
+        textarea {
+            width: 100%;
+        }
+    }
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">// 歌曲列表
 var audioList = [
       "https://xyz7772.github.io/XYZExistence/bgms/岡部啓一 - 還ラナイ声／通常.mp3",
     "https://xyz7772.github.io/XYZExistence/bgms/帆足圭吾 - 曖昧ナ希望／氷雨.mp3",
@@ -197,15 +212,16 @@ window.toggleBGM = function(buttonElement) {
 </script><tw-passagedata pid="1" name="Start1" tags="" position="625,75" size="200,200">What does it mean to be exist in the world? 
 Thank you, kind traveler, for bearing witness to a fragment of &lt;h1&gt; Yizhou Xie &lt;/h1&gt;
 ---
-Please select a section to explore:
-[[About Yizhou]]
-[[Education]]
-[[Research Experience]]
-[[Research Interests]]
-[[Skills]]
-[[Publications]]
-[[Contact]]
-&lt;button id=&quot;playPauseButton&quot; onclick=&quot;window.toggleBGM(this)&quot;&gt;Music&lt;/button&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills" tags="" position="200,425" size="100,100">&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Programming Language**&lt;/span&gt;
+&lt;span style=&quot;font-size: 120%;&quot;&gt;Please select a section to explore: &lt;/span&gt;
+&lt;span style=&quot;display: block; text-align: center; font-size: 130%;&quot;&gt;
+    [[About Yizhou]]
+    [[Education]]
+    [[Skills]]
+    [[Research Interests]]
+    [[Research Experience]]
+    [[Publications]]
+    [[Contact]] 
+    &lt;/span&gt;&lt;button id=&quot;playPauseButton&quot; onclick=&quot;window.toggleBGM(this)&quot;&gt;Music&lt;/button&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills" tags="" position="200,425" size="100,100">&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Programming Language**&lt;/span&gt;
 - MATLAB (advanced)
 - Shell (intermediate)
 - Python (intermediate)
@@ -238,7 +254,7 @@ Please select a section to explore:
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="3" name="Publications" tags="" position="450,475" size="100,100">&lt;h2&gt;**Publications**&lt;/h2&gt;
 ---
-&amp;#91;1&amp;#93; (text-colour:#FF6347)[&#39;&#39;Xie Y&#39;&#39;] and Sadeh S (2023). Computational assessment of visual coding across mouse brain areas and behavioral states. //Front. Comput. Neurosci.// 17:1269019. &lt;a
+&amp;#91;1&amp;#93; (text-colour:#FF8675)[&#39;&#39;Xie Y&#39;&#39;] and Sadeh S (2023). Computational assessment of visual coding across mouse brain areas and behavioral states. //Front. Comput. Neurosci.// 17:1269019. &lt;a
 href=&#39;https://www.frontiersin.org/articles/10.3389/fncom.2023.1269019/&#39; target=&#39;_blank&#39;&gt; link &lt;/a&gt;
 
 
@@ -252,13 +268,13 @@ href=&#39;https://www.frontiersin.org/articles/10.3389/fncom.2023.1269019/&#39; 
 &lt;form id=&quot;myForm&quot;&gt;
  &lt;label style=&quot;margin: 1px 0;&quot;&gt;
  In this vast universe, what do you think your existence means?
-    &lt;textarea name=&quot;message&quot; rows=&quot;5&quot; cols=&quot;50&quot;&gt;&lt;/textarea&gt;
+    &lt;textarea name=&quot;message&quot; rows=&quot;4&quot;&gt;&lt;/textarea&gt;
 &lt;/label&gt;
 &lt;label style=&quot;margin: 1px 0;&quot;&gt; Your email:
     &lt;input type=&quot;email&quot; name=&quot;email&quot; style=&quot;width:250px;&quot;&gt;
 &lt;/label&gt;
 &lt;br&gt;
-&lt;button type=&quot;submit&quot; style=&quot;font-size: 26px;&quot;&gt;Send&lt;/button&gt;
+&lt;button type=&quot;submit&quot; style=&quot;font-size: 22px;&quot;&gt;Send&lt;/button&gt;
 &lt;/form&gt;
 &lt;script src=&quot;https://code.jquery.com/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;
 [[Return to Main Menu|Start1]]
@@ -284,7 +300,7 @@ $(document).ready(function() {
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Education" tags="" position="1100,400" size="100,100">&lt;h2&gt;&#39;&#39;Education&#39;&#39;&lt;/h2&gt;
 ---
 Master of Research in Experimental Neuroscience 2022-2023
-Imperial College London, UK
+Imperial College London, London, United Kingdom
 
 
 Bachelor of Science in Biology 2018-2022
@@ -294,13 +310,13 @@ Case Western Reserve University, OH, United States
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="6" name="Research Experience" tags="" position="925,475" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
 ---
-**Department of Brain Sciences, Faculty of Medicine, Imperial College London**
-
+&lt;span style=&quot;font-size: 1.15em;&quot;&gt;**Department of Brain Sciences, Faculty of Medicine, Imperial College London**&lt;/span&gt;
 **Independent Project (June 2023 - Sep 2023)**
 Supervisor: Dr. Gregory Scott
 - Leveraged HPC clusters to execute parallel processing tasks, proficient in job scheduling and resource management using the PBS system.
 - Utilized state-of-the-art toolboxes, including Automagic and HAPPE, to preprocess extensive EEG datasets from the TUH EEG Corpus.
 - Provided a comprehensive evaluation of EEG preprocessing techniques, offering insights into the interplay of different machine learning models (SVM and CNN) and EEG data under various preprocessing conditions.
+
 
 
 **Independent Project (Feb 2023 - June 2023)**
@@ -309,39 +325,42 @@ Supervisor: Dr. Javier Alegre Abarrategui
 - Investigated the co-localization of P-Ser129-synuclein and a-synuclein in the cingulate cortex of patients with PD, PDD, LBD, MSA.
 
 
+
 **Independent Project (Oct 2022 - Jan 2023)**
 Supervisor: Dr. Sadra Sadeh
 - Decoded visual stimuli (natural movie frames) from mice neural activity using datasets from the Allen Brain Institute.
 - Applied machine learning tools to assess the computational ability of neuron population to process visual information across different brain regions and behavior states.
 ---
-
-**Department of Neuroscience, School of Medicine, Case Western Reserve University**
-
+&lt;span style=&quot;font-size: 1.15em;&quot;&gt;**Department of Neuroscience, School of Medicine, Case Western Reserve University**&lt;/span&gt;
 **Undergraduate Research Assistant &amp; Research Assistant (May 2021 - Oct 2022)**
 Supervisor: Dr. Masashi Tabuchi
-- Managed and purchased laboratory materials...
-- Collaborated with undergraduate students...
-- Investigation &amp; Data analysis...
-- Set up of new equipment and development of protocols...
+- Managed and purchased laboratory materials.
+- Drosophila maintenance and set cross.
+- Collaborated with undergraduate students.
+- Investigation &amp; Data analysis of ongoing projects.
+- Set up of new equipment, including FRET optics and Drosophila sleep deprivation machine.
+
 
 
 **Capstone Research (Aug 2021- May 2022)**
 Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox
-- Explored connections between circadian rhythm, memory, and neurodegenerative diseases through transcript expression level and behavior analysis in Drosophila
-- Studied the effect of //pumilio// on sleep structure and DN1 neuronal excitability
+- Explored connections between circadian rhythm, memory, and neurodegenerative diseases through transcript expression level and behavior analysis in Drosophila.
+- Studied the effect of //pumilio// on sleep structure and DN1 neuronal excitability.
 
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="7" name="About Yizhou" tags="" position="1175,225" size="100,100">&lt;h2&gt;**About Yizhou**&lt;/h2&gt;
 &lt;img src=&quot;https://github.com/xyz7772/XYZExistence/blob/main/Imgs/playing%20the%20guitar.jpg?raw=true&quot; alt=&quot;Playing the Guitar&quot; width=&quot;570&quot;&gt;
-Born in Zhenjiang, Jiangsu, China, in 2000
+Born in Zhenjiang, Jiangsu, China
 ---
-In my spare moments, I play the acoustic guitar and appreciate for Classical, Electronic, Folk, and Experimental genres. In the gaming realm, I&#39;m not just a player but a detective — dissecting game mechanics and unearthing hidden gaming tips. I also take pleasure in crafting interactive visual novels. Experience one such journey here: &lt;a href=&#39;https://xyz7772.github.io/AWinter_Fairytale/&#39; target=&#39;_blank&#39;&gt;A Winter Fairytale&lt;/a&gt;.
+Individuals can shape and achieve their own lives on the basis of their existing conditions. In my spare time, I play the acoustic guitar and appreciate Classical, Electronic, Folk, and Experimental genres. In the gaming realm, I&#39;m not just a player but a detective, dissecting game mechanics and unearthing hidden gaming tips. I also take pleasure in crafting interactive visual novels. Experience one such journey from here: &lt;a href=&#39;https://xyz7772.github.io/AWinter_Fairytale/&#39; target=&#39;_blank&#39;&gt;A Winter Fairytale&lt;/a&gt;.
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Research Interests" tags="" position="675,500" size="100,100">&lt;h2&gt;**Research Interests**&lt;/h2&gt;
 ---
-1. Apply and develop computational approaches and state of the art brain imaging techniques to understand how the brain works/disorder
-2. Real-time decoding brain and develop brain machine interface
-3. Health AI for faster and early detection of brain disease and abnormalities
+My research interests span multiple domains, with a particular focus on integrating cutting-edge biotechnologies and computational methods:
+
+1.  Applying and developing computational approaches and state-of-the-art brain imaging techniques to understand how the brain works and how it may be affected by disorders.
+2.  Real-time decoding of information and the development of brain-machine interfaces.
+3.  Utilizing health AI for faster and earlier detection of brain diseases and abnormalities.
 
 [[Return to Main Menu|Start1]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
