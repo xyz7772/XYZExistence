@@ -139,13 +139,11 @@ a:hover {
 }
 
 
-/* 当屏幕宽度小于或等于600px时 */
-@media only screen and (max-width: 600px) {
+@media (max-width: 800px) {
     body {
-        font-size: 9px;
+        font-size: 10px;
     }
 
-    /* 其他针对手机的样式 */
 }
 
 audio#bgm {
@@ -171,6 +169,22 @@ textarea {
             width: 100%;
         }
     }
+
+    /* 默认情况下，为大屏幕定义样式 */
+    .responsive-image {
+        width: 63%;
+    }
+
+    /* 当屏幕宽度小于或等于768px（例如手机）时，应用以下样式 */
+    @media (max-width: 768px) {
+        .responsive-image {
+            width: 80%;  /* 图像宽度减少为原来的一半 */
+        }
+    }
+
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">// 歌曲列表
 var audioList = [
       "https://xyz7772.github.io/XYZExistence/bgms/岡部啓一 - 還ラナイ声／通常.mp3",
@@ -306,7 +320,7 @@ Case Western Reserve University, OH, United States
 
 
 
-[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="6" name="Research Experience" tags="" position="925,475" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="6" name="Research Experience" tags="" position="650,475" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
 ---
 &lt;span style=&quot;font-size: 1.15em;&quot;&gt;**Department of Brain Sciences, Faculty of Medicine, Imperial College London**&lt;/span&gt;
 **Independent Project (June 2023 - Sep 2023)**
@@ -328,6 +342,8 @@ Supervisor: Dr. Javier Alegre Abarrategui
 Supervisor: Dr. Sadra Sadeh
 - Decoded visual stimuli (natural movie frames) from mice neural activity using datasets from the Allen Brain Institute.
 - Applied machine learning tools to assess the computational ability of neuron population to process visual information across different brain regions and behavior states.
+
+
 ---
 &lt;span style=&quot;font-size: 1.15em;&quot;&gt;**Department of Neuroscience, School of Medicine, Case Western Reserve University**&lt;/span&gt;
 **Undergraduate Research Assistant &amp; Research Assistant (May 2021 - Oct 2022)**
@@ -347,12 +363,12 @@ Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox
 
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="7" name="About Yizhou" tags="" position="1175,225" size="100,100">&lt;h2&gt;**About Yizhou**&lt;/h2&gt;
-&lt;img src=&quot;https://github.com/xyz7772/XYZExistence/blob/main/Imgs/playing%20the%20guitar.jpg?raw=true&quot; alt=&quot;Playing the Guitar&quot; width=&quot;570&quot;&gt;
+&lt;img class=&quot;responsive-image&quot; src=&quot;https://github.com/xyz7772/XYZExistence/blob/main/Imgs/playing%20the%20guitar.jpg?raw=true&quot; alt=&quot;Playing the Guitar&quot;&gt;
 Born in Zhenjiang, Jiangsu, China
 ---
 Individuals can shape and achieve their own lives on the basis of their existing conditions. In my spare time, I play the acoustic guitar and appreciate Classical, Electronic, Folk, and Experimental genres. In the gaming realm, I&#39;m not just a player but a detective, dissecting game mechanics and unearthing hidden gaming tips. I also take pleasure in crafting interactive visual novels. Experience one such journey from here: &lt;a href=&#39;https://xyz7772.github.io/AWinter_Fairytale/&#39; target=&#39;_blank&#39;&gt;A Winter Fairytale&lt;/a&gt;.
 
-[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Research Interests" tags="" position="675,500" size="100,100">&lt;h2&gt;**Research Interests**&lt;/h2&gt;
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Research Interests" tags="" position="850,450" size="100,100">&lt;h2&gt;**Research Interests**&lt;/h2&gt;
 ---
 My research interests span multiple domains, with a particular focus on integrating cutting-edge biotechnologies and computational methods:
 
