@@ -189,6 +189,7 @@ textarea {
 var audioList = [
       "https://xyz7772.github.io/XYZExistence/bgms/岡部啓一 - 還ラナイ声／通常.mp3",
     "https://xyz7772.github.io/XYZExistence/bgms/帆足圭吾 - 曖昧ナ希望／氷雨.mp3",
+    "https://xyz7772.github.io/XYZExistence/bgms/MONACA,岡部啓一 - カイネ／救済.mp3",
     "https://xyz7772.github.io/XYZExistence/bgms/岡部啓一 - 還ラナイ声／ギター.mp3"
 ];
 var currentAudioIndex = 0;
@@ -197,7 +198,7 @@ if (!window.bgm) {
     window.bgm = new Audio(audioList[currentAudioIndex]);
     window.bgm.loop = false;  // 设置为false，因为我们手动处理歌曲间的切换
     window.bgmPlaying = false;
-    window.bgm.volume = 0.2;
+    window.bgm.volume = 0.4;
 }
 
 // 当前歌曲结束时的处理
@@ -312,24 +313,27 @@ $(document).ready(function() {
 &lt;span style=&quot;font-size: 1.1em;&quot;&gt;**Department of Brain Sciences, Faculty of Medicine, Imperial College London**&lt;/span&gt;
 
 **Independent Project (June 2023 - Sep 2023)**
+Title:(text-style:&quot;underline&quot;)[ EEG Preprocessing: Insights from Machine Learning Perspectives]
 Supervisor: Dr. Gregory Scott
-- Leveraged HPC clusters to execute parallel processing tasks, proficient in job scheduling and resource management using the PBS system.
-- Utilized state-of-the-art toolboxes, including Automagic and HAPPE, to preprocess extensive EEG datasets from the TUH EEG Corpus.
-- Provided a comprehensive evaluation of EEG preprocessing techniques, offering insights into the interplay of different machine learning models (SVM and CNN) and EEG data under various preprocessing conditions.
+- Utilized HPC clusters to execute parallel processing tasks, proficient in job scheduling and resource management using the PBS system
+- Applied state-of-the-art toolboxes, including Automagic and HAPPE, to preprocess extensive EEG datasets from the TUH EEG Corpus
+- Evaluated the effectiveness of EEG processing methods through the performance of various machine learning models
 
 
 
 **Independent Project (Feb 2023 - June 2023)**
+Title: (text-style:&quot;underline&quot;)[Exploring the Distribution of P-Ser-129 a-Synuclein in the Limbic System of Patients with a-Synucleinopathies]
 Supervisor: Dr. Javier Alegre Abarrategui
-- Performed immunohistochemistry staining of P-Ser129-synuclein and a-synuclein aggregates in the cingulate cortex and amygdala of patients with Parkinson&#39;s disease (PD), Parkinson&#39;s disease dementia (PDD), Lewy body diseases (LBD) and multiple system atrophy (MSA).
-- Investigated the distribution and co-localization of P-Ser129-synuclein and a-synuclein in the cingulate cortex and amygdala of patients with PD, PDD, LBD, MSA.
+- Performed extensive immunohistochemistry staining of P-Ser129-synuclein and a-synuclein aggregates in the cingulate cortex and amygdala of patients with Parkinson&#39;s disease (PD), Parkinson&#39;s disease dementia (PDD), Lewy body diseases (LBD) and multiple system atrophy (MSA)
+- Investigated the co-localization and distribution of P-Ser129-synuclein and a-synuclein in the cingulate cortex of patients with PD, PDD, LBD, and MSA
 
 
 
 **Independent Project (Oct 2022 - Jan 2023)**
+Title: (text-style:&quot;underline&quot;)[Decoding Visual Stimuli from Neuronal Responses in Different Brain Regions and Behaviour States]
 Supervisor: Dr. Sadra Sadeh
-- Decoded visual stimuli (natural movie frames) from mice neural activity using datasets from the Allen Brain Institute.
-- Applied machine learning tools to assess the computational ability of neuron population to process visual information across different brain regions and behavior states.
+- Decoded visual stimuli (natural movie frames) from mice neural activity using Neuropixels datasets from the Allen Brain Institute
+- Applied machine learning tools to assess the computational ability of neuron population to process visual information across different brain regions and behavior states
 
 
 ---
@@ -337,18 +341,23 @@ Supervisor: Dr. Sadra Sadeh
 
 **Undergraduate Research Assistant &amp; Research Assistant (May 2021 - Oct 2022)**
 Supervisor: Dr. Masashi Tabuchi
-- Managed and purchased laboratory materials.
-- Drosophila maintenance and set cross.
-- Collaborated with undergraduate students.
-- Investigation &amp; Data analysis of ongoing projects.
-- Set up of new equipment, including FRET optics and Drosophila sleep deprivation machine.
+- Managed and purchased laboratory materials
+- Drosophila maintenance and set cross
+- Collaborated with undergraduate students
+- Investigation &amp; Data analysis of ongoing projects
+- Set up of new equipment, including FRET optics and Drosophila sleep deprivation machine
 
 
 
-**Capstone Research (Aug 2021- May 2022)**
+**Capstone Research (Aug 2021- May 2022)**                          
+Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox 
+Title: (text-style:&quot;underline&quot;)[The effect of pumilio in DN1 neurons on sleep structure and circadian rhythms] 
+- Studied effects of decreased level of pumilio in DN1 on sleep structure and circadian rhythm
+- Performed patch clamp recording of DN1 neurons
+                                         
 Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox
-- Explored connections between circadian rhythm, memory, and neurodegenerative diseases through transcript expression level and behavior analysis in Drosophila.
-- Studied the effect of //pumilio// on sleep structure and DN1 neuronal excitability.
+Title: (text-style:&quot;underline&quot;)[Genes associated with sleep and memory show cyclic transcription patterns in circadian clock neurons of Drosophila]
+- Analyzed RNA-seq data and performed RNAi-based behavioral screening
 
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="6" name="About Yizhou" tags="" position="1075,325" size="100,100">&lt;h2&gt;**About Yizhou**&lt;/h2&gt;
@@ -375,7 +384,7 @@ My research interests span multiple domains, with a particular focus on integrat
 
 1.  Applying and developing computational approaches and state-of-the-art brain imaging techniques to understand how the brain works and how it may be affected by disorders.
 2.  Real-time decoding of information and the development of brain-machine interfaces.
-3.  Utilizing health AI for faster and earlier detection of brain diseases and abnormalities.
+3.  Developing health AI for faster and earlier detection of brain diseases and abnormalities.
 
 [[Return to Main Menu|Start1]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
