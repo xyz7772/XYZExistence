@@ -182,8 +182,51 @@ textarea {
         }
     }
 
+.typing {
+    font-size: 3em;
+  display: inline-block; /* 让容器宽度适应内容 */
+    height: 1.5em;
+    border-right: 1px solid transparent;
+  animation: typing 7.5s steps(14, end) infinite,
+              blink-caret 0.75s step-end infinite;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+/* 打印效果 */
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    20% { /* 调整此值可以让打字效果更快或更慢 */
+        width: 34%; /* 或者更精确的宽度以匹配文本长度 */
+    }
+    100% {
+        width: 34%; /* 保持与上一个阶段相同，使之看起来像在停顿 */
+    }
+}
 
 
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: currentColor;
+    }
+  
+  
+}
+
+@media (max-width: 768px) {
+    .typing {
+        font-size: 2em; /* 调整字体大小 */
+        /* 其他需要调整的样式 */
+    }
+}
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">// 歌曲列表
 var audioList = [
@@ -198,7 +241,7 @@ var currentAudioIndex = 0;
 
 if (!window.bgm) {
     window.bgm = new Audio(audioList[currentAudioIndex]);
-    window.bgm.loop = false;  // 设置为false，因为我们手动处理歌曲间的切换
+    window.bgm.loop = false; 
     window.bgmPlaying = false;
     window.bgm.volume = 0.4;
 }
@@ -215,6 +258,10 @@ window.bgm.addEventListener('ended', function() {
 
 window.toggleBGM = function(buttonElement) {
     if (window.bgm.paused) {
+            window.bgm.play().catch(function(error) {
+            console.error("cannot play：", error);
+            alert("please refresh the page to play music");
+        });
         window.bgm.play();
         buttonElement.textContent = "Pause";
         window.bgmPlaying = true;
@@ -225,11 +272,9 @@ window.toggleBGM = function(buttonElement) {
     }
 };
 
-
-
-
 </script><tw-passagedata pid="1" name="Start1" tags="" position="625,75" size="200,200">What does it mean to exist in the world?
-Thank you, kind traveler, for bearing witness to a fragment of &lt;h1&gt; Yizhou Xie &lt;/h1&gt;
+Thank you, kind traveler, for bearing witness to a fragment of 
+&lt;div class=&quot;typing&quot;&gt;Yizhou Xie&lt;/div&gt;
 ---
 &lt;span style=&quot;font-size: 120%;&quot;&gt;Please select a section to explore: &lt;/span&gt;
 &lt;span style=&quot;display: block; text-align: center; font-size: 130%;&quot;&gt;
@@ -239,7 +284,17 @@ Thank you, kind traveler, for bearing witness to a fragment of &lt;h1&gt; Yizhou
     [[Research Experience]]
     [[Publications]]
     [[Contact]] 
-    &lt;/span&gt;&lt;button id=&quot;playPauseButton&quot; onclick=&quot;window.toggleBGM(this)&quot;&gt;Music&lt;/button&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills" tags="" position="875,475" size="100,100">&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Programming Language**&lt;/span&gt;
+    [[Quit]]
+    &lt;/span&gt;&lt;button id=&quot;playPauseButton&quot; onclick=&quot;window.toggleBGM(this)&quot;&gt;Music&lt;/button&gt;&lt;script&gt;
+    $(document).ready(function() {
+        var buttonElement = document.getElementById(&quot;playPauseButton&quot;);
+        if(window.bgmPlaying) {
+            buttonElement.textContent = &quot;Pause&quot;;
+        } else {
+            buttonElement.textContent = &quot;Music&quot;;
+        }
+    });
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills" tags="" position="875,475" size="100,100">&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Programming Language**&lt;/span&gt;
 - MATLAB (advanced)
 - HTML/CSS/JavaScript (intermediate)
 - Shell (intermediate)
@@ -316,6 +371,8 @@ $(document).ready(function() {
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Research Experience" tags="" position="225,350" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
 ---
+[[Return to Main Menu|Start1]]
+
 &lt;span style=&quot;font-size: 1.1em;&quot;&gt;**Department of Brain Sciences, Faculty of Medicine, Imperial College London**&lt;/span&gt;
 
 **Independent Project (June 2023 - Sep 2023)**
@@ -392,7 +449,10 @@ My research interests span multiple domains, with a particular focus on integrat
 2.  Real-time decoding of information and the development of brain-machine interfaces.
 3.  Developing health AI for faster and earlier detection of brain diseases and abnormalities.
 
-[[Return to Main Menu|Start1]]</tw-passagedata></tw-storydata>
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Quit" tags="" position="350,50" size="100,100">&lt;script&gt;
+  window.close();
+  document.write(&#39;You can now safely close your browser window&#39;);
+&lt;/script&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
