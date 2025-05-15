@@ -199,10 +199,10 @@ textarea {
         width: 0;
     }
     20% { /* 调整此值可以让打字效果更快或更慢 */
-        width: 5.25em; /* 或者更精确的宽度以匹配文本长度 */
+        width: 5.21em; /* 或者更精确的宽度以匹配文本长度 */
     }
     100% {
-        width: 5.25em; /* 保持与上一个阶段相同，使之看起来像在停顿 */
+        width: 5.21em; /* 保持与上一个阶段相同，使之看起来像在停顿 */
     }
 }
 
@@ -232,8 +232,8 @@ textarea {
         0% {
         width: 0;
     }
-        20% { width: 3.5em; /* 示例值 */ }
-        100% { width: 3.5em; /* 保持一致性 */ }
+        20% { width: 4.25em; /* 示例值 */ }
+        100% { width: 4.25em; /* 保持一致性 */ }
     }
 }
 
@@ -253,6 +253,7 @@ if (!window.bgm) {
     window.bgm.loop = false; 
     window.bgmPlaying = false;
     window.bgm.volume = 0.4;
+
 }
 
 // 当前歌曲结束时的处理
@@ -281,9 +282,15 @@ window.toggleBGM = function(buttonElement) {
     }
 };
 
-</script><tw-passagedata pid="1" name="Start1" tags="" position="625,75" size="200,200">What does it mean to exist in the world?
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Start1" tags="" position="625,75" size="200,200">&lt;p&gt;What does it mean to (if: $conditionMet is true)[[[exist|exist]]]\
+(else: )[&lt;span id=&quot;drag-exist&quot; draggable=&quot;true&quot; class=&quot;draggable&quot;&gt;exist&lt;/span&gt;] in the world?
 Thank you, kind traveler, for bearing witness to a fragment of 
-&lt;div class=&quot;typing&quot;&gt;Yizhou Xie&lt;/div&gt;
+&lt;div id=&quot;yizhou-xie&quot; class=&quot;typing&quot;&gt;Yizhou Xie&lt;/div&gt;&lt;/p&gt;
 ---
 &lt;span style=&quot;font-size: 120%;&quot;&gt;Please select a section to explore: &lt;/span&gt;
 &lt;span style=&quot;display: block; text-align: center; font-size: 130%;&quot;&gt;
@@ -303,13 +310,66 @@ Thank you, kind traveler, for bearing witness to a fragment of
             buttonElement.textContent = &quot;Music&quot;;
         }
     });
+&lt;/script&gt;
+
+&lt;script&gt;
+document.addEventListener(&#39;DOMContentLoaded&#39;, function () {
+    var conditionMet = false; 
+
+    var dragItem = document.getElementById(&#39;drag-exist&#39;);
+    var dropTarget = document.getElementById(&#39;yizhou-xie&#39;);
+
+    // 确保元素已正确选中
+    console.log(dragItem, dropTarget);
+
+    dragItem.addEventListener(&#39;dragstart&#39;, function (e) {
+        e.dataTransfer.setData(&#39;text&#39;, dragItem.id);  // 使用 &#39;text&#39; 而不是 &#39;text/plain&#39;
+        console.log(&#39;Drag started.&#39;);  // 调试语句
+    });
+
+    dropTarget.addEventListener(&#39;dragover&#39;, function (e) {
+        e.preventDefault();
+        console.log(&#39;Dragging over drop target.&#39;);  // 调试语句
+    });
+
+    dropTarget.addEventListener(&#39;drop&#39;, function (e) {
+        e.preventDefault();
+        console.log(&#39;Item dropped.&#39;);  // 调试语句
+
+        var data = e.dataTransfer.getData(&#39;text&#39;);  // 使用 &#39;text&#39; 而不是 &#39;text/plain&#39;
+        var droppedItem = document.getElementById(data);
+
+        // 确保获取了正确的元素和数据
+        console.log(data, droppedItem);
+
+        if (e.target.id === &#39;yizhou-xie&#39;) {
+            e.target.appendChild(droppedItem);
+            conditionMet = true;
+            console.log(&#39;Condition has been met:&#39;, conditionMet);
+        } else {
+            console.log(&#39;Dropped on a different target:&#39;, e.target);  // 如果放在其他地方，则进行调试
+        }
+    });
+});
+
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Skills" tags="" position="875,475" size="100,100">&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Programming Language**&lt;/span&gt;
-- MATLAB (advanced)
-- HTML/CSS/JavaScript (intermediate)
-- Shell (intermediate)
-- Python (intermediate)
-- R (beginner)
+- MATLAB
+- Python
+- HTML/CSS/JavaScript
+- Shell
+- R
 ---
+&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Tools &amp; Software**&lt;/span&gt;
+- Adobe Illustrator &amp; Photoshop
+- FIJI ImageJ 
+- GraphPad Prism
+- Imaris
+- Qupath
+---
+&lt;span style=&quot;font-size: 1.2em;&quot;&gt;** Analytical Techniques &amp; Platforms**&lt;/span&gt;
+ • MATLAB toolboxes for SVM, GLM, PCA, regression-based neural data analysis
+ • Jupyter Notebook, Git, Linux HPC Clusters
+ ---
 &lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Wet Lab Techniques**&lt;/span&gt;
 - Cell cultivation
 - Confocal microscopy
@@ -322,24 +382,15 @@ Thank you, kind traveler, for bearing witness to a fragment of
 - Larva neuromuscular junction (NMJ) recording
 - PCR &amp; RT-PCR
 - Protein purification
----
-&lt;span style=&quot;font-size: 1.2em;&quot;&gt;**Tools &amp; Software**&lt;/span&gt;
-- Adobe Illustrator &amp; Photoshop
-- Excel
-- FIJI ImageJ 
-- GraphPad Prism
-- Git
-- Imaris
-- Jupyter Notebook
-- Qupath
-- Zen-pro
+
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="3" name="Publications" tags="" position="450,425" size="100,100">&lt;h2&gt;**Publications**&lt;/h2&gt;
 ---
 &amp;#91;1&amp;#93; (text-colour:#FF8675)[&#39;&#39;Xie Y&#39;&#39;] and Sadeh S (2023). Computational assessment of visual coding across mouse brain areas and behavioral states. //Front. Comput. Neurosci.// 17:1269019. &lt;a
 href=&#39;https://www.frontiersin.org/articles/10.3389/fncom.2023.1269019/&#39; target=&#39;_blank&#39;&gt; link &lt;/a&gt;
 
-
+&amp;#91;2&amp;#93;  (Preprint) Roš, H., (text-colour:#FF8675)[&#39;&#39;Xie Y&#39;&#39;]., Sadeh, S., \&amp; Silver, R. A. (2025). Population activity of mossy fibre input to the cerebellar cortex during behaviours. //bioRxiv.// 17:1269019. &lt;a
+href=&#39;https://doi.org/10.1101/2025.03.23.644738&#39; target=&#39;_blank&#39;&gt; link &lt;/a&gt;
 
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="4" name="Contact" tags="" position="75,250" size="100,100">&lt;h2&gt;**Contact**&lt;/h2&gt;
@@ -378,58 +429,60 @@ $(document).ready(function() {
         });
     });
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Research Experience" tags="" position="225,350" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
+&lt;/script&gt;
+</tw-passagedata><tw-passagedata pid="5" name="Research Experience" tags="" position="225,350" size="100,100">&lt;h2&gt;**Research Experience**&lt;/h2&gt;
 ---
 [[Return to Main Menu|Start1]]
 
-&lt;span style=&quot;font-size: 1.1em;&quot;&gt;**Department of Brain Sciences, Faculty of Medicine, Imperial College London**&lt;/span&gt;
 
-**Independent Project (June 2023 - Sep 2023)**
+&lt;span style=&quot;font-size: 1.1em;&quot;&gt;**University College London, Department of Neuroscience, Physiology, and Pharmacology**&lt;/span&gt;
+
+**Research assistant**
+Nov 2023– Mar 2025
+Title:(text-style:&quot;underline&quot;)[ Population activity of mossy fibre axon input to the cerebellar cortex during behaviours]
+ Collaborators: Dr. Sadra Sadeh, Dr. Hana Ros, Prof. Angus Silver
+ • First recordings of population activity of mossy fibre input to cerebellar cortex
+ • Analysed two-photon 3D calcium imaging data and behaviour data
+ • Organised and pre-processed data, contributing to manuscript writing
+---
+
+&lt;span style=&quot;font-size: 1.1em;&quot;&gt;**Imperial College London, Faculty of Medicine, Department of Brain Sciences,**&lt;/span&gt;
+
+**Independent Project**
+June 2023 - Sep 2023
 Title:(text-style:&quot;underline&quot;)[ EEG Preprocessing: Insights from Machine Learning Perspectives]
 Supervisor: Dr. Gregory Scott
-- Utilized HPC clusters to execute parallel processing tasks, proficient in job scheduling and resource management using the PBS system
-- Applied state-of-the-art toolboxes, including Automagic and HAPPE, to preprocess extensive EEG datasets from the TUH EEG Corpus
-- Evaluated the effectiveness of EEG processing methods through the performance of various machine learning models
+ • Developed pipelines for EEG signal preprocessing and evaluation using both traditional methods and deep learning (CNN)
+ • Used HPC clusters to handle 2000+ TUH Corpus clinical EEG datasets
 
 
 
-**Independent Project (Feb 2023 - June 2023)**
+**Independent Project **
+Feb 2023 - June 2023
 Title: (text-style:&quot;underline&quot;)[Exploring the Distribution of P-Ser-129 a-Synuclein in the Limbic System of Patients with a-Synucleinopathies]
 Supervisor: Dr. Javier Alegre Abarrategui
-- Performed extensive immunohistochemistry staining of P-Ser129-synuclein and a-synuclein aggregates in the cingulate cortex and amygdala of patients with Parkinson&#39;s disease (PD), Parkinson&#39;s disease dementia (PDD), Lewy body diseases (LBD) and multiple system atrophy (MSA)
-- Investigated the co-localization and distribution of P-Ser129-synuclein and a-synuclein in the cingulate cortex of patients with PD, PDD, LBD, and MSA
+ • Performed IHCstaining to investigate a-synuclein aggregates in Parkinson’s disease (PD), Parkinson’s disease dementia (PDD), Lewy body diseases (LBD) and multiple system atrophy (MSA)
+ • Investigated the co-localization and distribution of P-Ser129-synuclein and a-synuclein in the cingulate cortex of patients with PD, PDD, LBD, and MSA
 
 
 
-**Independent Project (Oct 2022 - Jan 2023)**
+**Independent Project**
+Oct 2022 - Oct 2023
 Title: (text-style:&quot;underline&quot;)[Decoding Visual Stimuli from Neuronal Responses in Different Brain Regions and Behaviour States]
 Supervisor: Dr. Sadra Sadeh
-- Decoded visual stimuli (natural movie frames) from mice neural activity using Neuropixels datasets from the Allen Brain Institute
-- Applied machine learning tools to assess the computational ability of neuron population to process visual information across different brain regions and behavior states
+ • Decoded visual stimuli from mouse neural activity
+ • Studied the effect of behavioural variability on decoding performance
 
 
 ---
 &lt;span style=&quot;font-size: 1.1em;&quot;&gt;**Department of Neuroscience, School of Medicine, Case Western Reserve University**&lt;/span&gt;
 
-**Undergraduate Research Assistant &amp; Research Assistant (May 2021 - Oct 2022)**
+**Undergraduate Research Assistant &amp; Research Assistant**
+May 2021 - Oct 2022
 Supervisor: Dr. Masashi Tabuchi
-- Managed and purchased laboratory materials
-- Drosophila maintenance and set cross
-- Collaborated with undergraduate students
-- Investigation &amp; Data analysis of ongoing projects
-- Set up of new equipment, including FRET optics and Drosophila sleep deprivation machine
+ • Conducted Drosophila research on sleep, memory, and neurodegeneration using RNAi, qPCR, and patch clamp recordings in circadian neurons
+ • Designed and improved behavioural assays (olfactory memory, sleep deprivation)
 
-
-
-**Capstone Research (Aug 2021- May 2022)**                          
-Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox 
-Title: (text-style:&quot;underline&quot;)[The effect of pumilio in DN1 neurons on sleep structure and circadian rhythms] 
-- Studied effects of decreased level of pumilio in DN1 on sleep structure and circadian rhythm
-- Performed patch clamp recording of DN1 neurons
-                                         
-Supervisors: Dr. Masashi Tabuchi and Prof. Jessica Fox
-Title: (text-style:&quot;underline&quot;)[Genes associated with sleep and memory show cyclic transcription patterns in circadian clock neurons of Drosophila]
-- Analyzed RNA-seq data and performed RNAi-based behavioral screening
 
 
 [[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="6" name="About Yizhou" tags="" position="1075,325" size="100,100">&lt;h2&gt;**About Yizhou**&lt;/h2&gt;
@@ -438,7 +491,6 @@ Title: (text-style:&quot;underline&quot;)[Genes associated with sleep and memory
 Born in Zhenjiang, Jiangsu, China
 ---
 &lt;span style=&quot;font-size: 1.5em;&quot;&gt;**Prologue**&lt;/span&gt;
-
 Individuals can shape and achieve their own lives on the basis of their existing conditions. In my spare time, I play the acoustic guitar and appreciate Classical, Electronic, Folk, and Experimental genres. In the gaming realm, I&#39;m not just a player but a detective, dissecting game mechanics and unearthing hidden gaming tips. I also take pleasure in crafting interactive visual novels. Experience one such journey from here: &lt;a href=&#39;https://xyz7772.github.io/AWinter_Fairytale/&#39; target=&#39;_blank&#39;&gt;A Winter Fairytale&lt;/a&gt;.
 ---
 &lt;span style=&quot;font-size: 1.5em;&quot;&gt;**Education**&lt;/span&gt;
@@ -454,14 +506,17 @@ Case Western Reserve University, OH, United States
 ---
 My research interests span multiple domains, with a particular focus on integrating cutting-edge biotechnologies and computational methods:
 
-1.  Applying and developing computational approaches and state-of-the-art brain imaging techniques to understand how the brain works and how it may be affected by disorders.
-2.  Real-time decoding of information and the development of brain-machine interfaces.
-3.  Developing health AI for faster and earlier detection of brain diseases and abnormalities.
+1.  How to train an agent based on neural network to control its behavior in real-time through visual input, achieving a biomimetic simulation of the perception - decision - action chain
+2.  How does sensory input translate into fine motor control
+3.  Bidirectional Mechanisms between Sleep and Pathological Proteins in Neurodegenerative Diseases
 
-[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Quit" tags="" position="350,50" size="100,100">&lt;script&gt;
+[[Return to Main Menu|Start1]]</tw-passagedata><tw-passagedata pid="8" name="Quit" tags="" position="1075,175" size="100,100">&lt;script&gt;
   window.close();
   document.write(&#39;You can now safely close your browser window&#39;);
-&lt;/script&gt;</tw-passagedata></tw-storydata>
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="exist" tags="" position="1200,50" size="100,100">Congratulations, you&#39;ve unlocked a secret layer of content!
+[[Return to Main Menu|Start1]]
+
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
